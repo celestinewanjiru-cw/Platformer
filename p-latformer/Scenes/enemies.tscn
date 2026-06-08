@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://bmolr0udtoymc"]
+
+[ext_resource type="Script" uid="uid://djcdmncntv3xw" path="res://Script/snail.gd" id="1_rbk1d"]
+[ext_resource type="Texture2D" uid="uid://qc42xe6qsbpf" path="res://Assets/images/Snail/Idle (38x24).png" id="2_p0i1u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsjvy"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(0, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjijy"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(38, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnba0"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(76, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_casb8"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(114, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqs8f"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(152, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dokh"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(190, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyufb"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(228, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdrdu"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(266, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vib7w"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(304, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2nmr"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(342, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4bte"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(380, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isgqn"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(418, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rcfg"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(456, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7q7l"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(494, 0, 38, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvj1i"]
+atlas = ExtResource("2_p0i1u")
+region = Rect2(532, 0, 38, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ao3kc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsjvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjijy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnba0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_casb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqs8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dokh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyufb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdrdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vib7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2nmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4bte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isgqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rcfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7q7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvj1i")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbfup"]
+size = Vector2(29, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ss47"]
+
+[node name="enemies" type="Area2D" unique_id=597841048]
+script = ExtResource("1_rbk1d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=765610869]
+sprite_frames = SubResource("SpriteFrames_ao3kc")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1030318460]
+position = Vector2(1.5, 3.5)
+shape = SubResource("RectangleShape2D_pbfup")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=460824249]
+position = Vector2(7, 0)
+shape = SubResource("CircleShape2D_3ss47")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
